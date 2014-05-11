@@ -1,0 +1,42 @@
+
+OPB - projekt SQL shema
+
+
+CREATE TABLE festival (
+	ime
+	leto
+	kraj
+	od do	
+);
+
+CREATE TABLE sponzor (
+	ime TEXT PRIMARY KEY
+);
+
+CREATE TABLE država (
+	ime TEXT PRIMARY KEY
+	kontinent TEXT NOT NULL
+);
+
+CREATE TABLE prodajalec vstopnic (
+	ime
+	naslov
+	telefon
+	homepage
+);
+
+CREATE TABLE uporabnik (
+	ip SERIAL PRIMARY KEY
+);
+
+CREATE TABLE izvajalec (
+	id SERIAL PRIMARY KEY
+	ime TEXT NOT NULL
+	link 
+);
+
+CREATE TABLE zvrst (
+	ime TEXT PRIMARY KEY
+);
+
+
