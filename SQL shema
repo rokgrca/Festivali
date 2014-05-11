@@ -42,11 +42,14 @@ CREATE TABLE zvrst (
 
 
 CREATE TABLE sponzorira (
+	id SERIAL PRIMARY KEY,
 	vrednost INTEGER
 
 );
 
 CREATE TABLE prodaja (
+	cena_vstopnica INTEGER PRIMARY KEY,
+	cena_kamp INTEGER
 
 );
 
