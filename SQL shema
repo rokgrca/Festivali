@@ -42,6 +42,7 @@ CREATE TABLE zvrst (
 
 
 CREATE TABLE sponzorira (
+	id SERIAL PRIMARY KEY,
 	vrednost INTEGER
 
 );
