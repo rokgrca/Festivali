@@ -3,9 +3,9 @@ OPB - projekt SQL shema
 
 
 CREATE TABLE festival (
-	ime,
-	leto,
-	kraj,
+	ime TEXT PRIMARY KEY,
+	leto INTEGER PRIMARY KEY,
+	kraj TEXT PRIMARY KEY,
 	od do
 );
 
