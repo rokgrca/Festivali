@@ -1,5 +1,5 @@
 
-OPB - projekt SQL shema
+-- OPB - projekt SQL shema
 
 
 CREATE TABLE festival (
@@ -11,7 +11,8 @@ CREATE TABLE festival (
 );
 
 CREATE TABLE sponzor (
-	ime TEXT PRIMARY KEY
+	ime TEXT PRIMARY KEY,
+	država TEXT REFERENCES država(ime)
 );
 
 CREATE TABLE drzava (
@@ -20,14 +21,14 @@ CREATE TABLE drzava (
 );
 
 CREATE TABLE prodajalec_vstopnic (
-	ime,
-	naslov,
-	telefon,
-	homepage,
+	ime TEXT PRIMARY KEY,
+	naslov TEXT,
+	telefon INTEGER,
+	homepage TEXT
 );
 
 CREATE TABLE uporabnik (
-	ip SERIAL PRIMARY KEY
+	ip MACADDR PRIMARY KEY
 );
 
 CREATE TABLE izvajalec (
@@ -44,18 +45,29 @@ CREATE TABLE zvrst (
 
 CREATE TABLE sponzorira (
 	id SERIAL PRIMARY KEY,
-	vrednost INTEGER
-
+	vrednost INTEGER NOT NULL,
+	festival TEXT REFERENCES festival(ime),
+	leto INTEGER REFERENCES festival(leto),
+	kraj TEXT REFERENCES festival(kraj),
 );
 
 CREATE TABLE prodaja (
-	cena_vstopnica INTEGER PRIMARY KEY,
+	ime_prodajalec TEXT REFERENCES prodajalec_vstopnic(ime),
+	ime_država TEXT REFERENCES država(ime),
+	ime_festival TEXT REFERENCES festival(ime),
+	kraj_festival TEXT REFERENCES festival(kraj),
+	leto_festival TEXT REFERENCES festival(leto),
+	cena_vstopnica INTEGER,
 	cena_kamp INTEGER
 
 );
 
 CREATE TABLE ocenjuje (
-
+	ip_uporabnik MACADDR REFERENCES uporabnik(ip)
+	ocena INTEGER NOT NULL
+	ime_festival TEXT REFERENCES festival(ime),
+	kraj_festival TEXT REFERENCES festival(kraj),
+	leto_festival TEXT REFERENCES festival(leto)
 );
 
 CREATE TABLE je_v (
