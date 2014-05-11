@@ -3,10 +3,10 @@ OPB - projekt SQL shema
 
 
 CREATE TABLE festival (
-	ime
-	leto
-	kraj
-	od do	
+	ime,
+	leto,
+	kraj,
+	od do
 );
 
 CREATE TABLE sponzor (
@@ -14,15 +14,15 @@ CREATE TABLE sponzor (
 );
 
 CREATE TABLE drzava (
-	ime TEXT PRIMARY KEY
+	ime TEXT PRIMARY KEY,
 	kontinent TEXT NOT NULL
 );
 
 CREATE TABLE prodajalec vstopnic (
-	ime
-	naslov
-	telefon
-	homepage
+	ime,
+	naslov,
+	telefon,
+	homepage,
 );
 
 CREATE TABLE uporabnik (
@@ -30,9 +30,9 @@ CREATE TABLE uporabnik (
 );
 
 CREATE TABLE izvajalec (
-	id SERIAL PRIMARY KEY
-	ime TEXT NOT NULL
-	link 
+	id SERIAL PRIMARY KEY,
+	ime TEXT NOT NULL,
+	link TEXT
 );
 
 CREATE TABLE zvrst (
@@ -42,6 +42,7 @@ CREATE TABLE zvrst (
 
 
 CREATE TABLE sponzorira (
+	vrednost INTEGER
 
 );
 
@@ -54,18 +55,18 @@ CREATE TABLE ocenjuje (
 );
 
 CREATE TABLE je v (
-	festival TEXT REFERENCES festival(ime, leto, kraj)
-	drzava TEXT REFERENCES drzava(ime)
+	festival TEXT REFERENCES festival(ime, leto, kraj),
+	drzava TEXT REFERENCES drzava(ime),
 );
 
 CREATE TABLE je (
-	izvajalec TEXT REFERENCES izvajalec(id)
-	zvrst TEXT REFERENCES zvrst(ime)
+	izvajalec TEXT REFERENCES izvajalec(id),
+	zvrst TEXT REFERENCES zvrst(ime),
 	PRIMARY KEY (izvajalec, zvrst)
 );
 
 CREATE TABLE igra (
-	izvajalec TEXT REFERENCES izvajalec(id)
-	festival TEXT REFERENCES festival(ime, leto, kraj)
+	izvajalec TEXT REFERENCES izvajalec(id),
+	festival TEXT REFERENCES festival(ime, leto, kraj),
 	PRIMARY KEY (izvajalec, festival)
 );
