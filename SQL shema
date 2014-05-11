@@ -18,7 +18,7 @@ CREATE TABLE drzava (
 	kontinent TEXT NOT NULL
 );
 
-CREATE TABLE prodajalec vstopnic (
+CREATE TABLE prodajalec_vstopnic (
 	ime,
 	naslov,
 	telefon,
@@ -57,7 +57,7 @@ CREATE TABLE ocenjuje (
 
 );
 
-CREATE TABLE je v (
+CREATE TABLE je_v (
 	festival TEXT REFERENCES festival(ime, leto, kraj),
 	drzava TEXT REFERENCES drzava(ime),
 );
