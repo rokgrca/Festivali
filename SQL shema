@@ -6,7 +6,8 @@ CREATE TABLE festival (
 	ime TEXT PRIMARY KEY,
 	leto INTEGER PRIMARY KEY,
 	kraj TEXT PRIMARY KEY,
-	od do
+	zacetek DATE,
+	konec DATE
 );
 
 CREATE TABLE sponzor (
@@ -60,6 +61,7 @@ CREATE TABLE ocenjuje (
 CREATE TABLE je_v (
 	festival TEXT REFERENCES festival(ime, leto, kraj),
 	drzava TEXT REFERENCES drzava(ime),
+	PRIMARY KEY (festival, drzava)
 );
 
 CREATE TABLE je (
