@@ -13,7 +13,7 @@ CREATE TABLE sponzor (
 	ime TEXT PRIMARY KEY
 );
 
-CREATE TABLE država (
+CREATE TABLE drzava (
 	ime TEXT PRIMARY KEY
 	kontinent TEXT NOT NULL
 );
@@ -40,3 +40,32 @@ CREATE TABLE zvrst (
 );
 
 
+
+CREATE TABLE sponzorira (
+
+);
+
+CREATE TABLE prodaja (
+
+);
+
+CREATE TABLE ocenjuje (
+
+);
+
+CREATE TABLE je v (
+	festival TEXT REFERENCES festival(ime, leto, kraj)
+	drzava TEXT REFERENCES drzava(ime)
+);
+
+CREATE TABLE je (
+	izvajalec TEXT REFERENCES izvajalec(id)
+	zvrst TEXT REFERENCES zvrst(ime)
+	PRIMARY KEY (izvajalec, zvrst)
+);
+
+CREATE TABLE igra (
+	izvajalec TEXT REFERENCES izvajalec(id)
+	festival TEXT REFERENCES festival(ime, leto, kraj)
+	PRIMARY KEY (izvajalec, festival)
+);
