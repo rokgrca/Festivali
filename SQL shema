@@ -6,8 +6,8 @@ CREATE TABLE festival (
 	ime TEXT PRIMARY KEY,
 	leto INTEGER PRIMARY KEY,
 	kraj TEXT PRIMARY KEY,
-	zacetek DATE,
-	konec DATE
+	zacetek DATE NOT NULL,
+	konec DATE NOT NULL
 );
 
 CREATE TABLE sponzor (
