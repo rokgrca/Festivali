@@ -9,8 +9,7 @@ CREATE TABLE festival (
 	kraj TEXT NOT NULL,
 	zacetek DATE,
 	konec DATE,
-	kamp BOOLEAN,
-	povprecna_ocena INTEGER
+	kamp BOOLEAN
 );
 
 CREATE TABLE sponzor (
@@ -90,6 +89,6 @@ CREATE TABLE igra (
 
 
 CREATE VIEW najboljsi AS 
-SELECT id, ime, povprecna_ocena AS ocena FROM festival
-GROUP BY festival.id, festival.ime, festival.povprecna_ocena
+SELECT festival.id, festival.ime, ocenjuje.ocena AS ocena FROM festival, ocenjuje
+GROUP BY festival.id, festival.ime
 ORDER BY ocena DESC
