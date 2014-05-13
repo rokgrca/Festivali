@@ -14,7 +14,7 @@ CREATE TABLE festival (
 
 CREATE TABLE sponzor (
 	ime TEXT PRIMARY KEY,
-	država TEXT REFERENCES država(ime)
+	drzava TEXT REFERENCES drzava(ime)
 );
 
 CREATE TABLE drzava (
@@ -85,3 +85,5 @@ CREATE TABLE igra (
 	festival TEXT REFERENCES festival(ime, leto, kraj),
 	PRIMARY KEY (izvajalec, festival)
 );
+
+
