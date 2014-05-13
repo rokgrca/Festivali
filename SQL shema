@@ -3,13 +3,14 @@
 
 
 CREATE TABLE festival (
+	id SERIAL PRIMARY KEY,
 	ime TEXT NOT NULL,
 	leto INTEGER NOT NULL,
 	kraj TEXT NOT NULL,
 	zacetek DATE,
 	konec DATE,
 	kamp BOOLEAN,
-	PRIMARY KEY (ime, leto, kraj)
+	povprecna_ocena INTEGER
 );
 
 CREATE TABLE sponzor (
@@ -30,7 +31,7 @@ CREATE TABLE prodajalec_vstopnic (
 );
 
 CREATE TABLE uporabnik (
-	ip MACADDR PRIMARY KEY
+	ip CIDR PRIMARY KEY
 );
 
 CREATE TABLE izvajalec (
@@ -49,41 +50,46 @@ CREATE TABLE sponzorira (
 	id SERIAL PRIMARY KEY,
 	sponzor TEXT REFERENCES sponzor(ime),
 	vrednost INTEGER NOT NULL,
-	festival TEXT REFERENCES festival(ime, leto, kraj)
+	festival INTEGER REFERENCES festival(id)
 );
 
 CREATE TABLE prodaja (
 	ime_prodajalec TEXT REFERENCES prodajalec_vstopnic(ime),
-	ime_drzava TEXT REFERENCES država(ime),
-	festival TEXT REFERENCES festival(ime, leto, kraj),
+	ime_drzava TEXT REFERENCES drzava(ime),
+	festival INTEGER REFERENCES festival(id),
 	cena_vstopnica INTEGER NOT NULL,
-	cena_kamp INTEGER
+	cena_kamp INTEGER,
 	PRIMARY KEY (ime_prodajalec, ime_drzava, festival)
 );
 
 CREATE TABLE ocenjuje (
-	ip_uporabnik MACADDR REFERENCES uporabnik(ip)
-	ocena INTEGER NOT NULL
-	festival TEXT REFERENCES festival(ime, leto, kraj),
+	ip_uporabnik CIDR REFERENCES uporabnik(ip),
+	ocena INTEGER NOT NULL,
+	CHECK (1 <= ocena AND ocena <= 10),
+	festival INTEGER REFERENCES festival(id),
 	PRIMARY KEY (ip_uporabnik, festival)
 );
 
 CREATE TABLE je_v (
-	festival TEXT REFERENCES festival(ime, leto, kraj),
+	festival INTEGER REFERENCES festival(id),
 	drzava TEXT REFERENCES drzava(ime),
 	PRIMARY KEY (festival, drzava)
 );
 
 CREATE TABLE je (
-	izvajalec TEXT REFERENCES izvajalec(id),
+	izvajalec INTEGER REFERENCES izvajalec(id),
 	zvrst TEXT REFERENCES zvrst(ime),
 	PRIMARY KEY (izvajalec, zvrst)
 );
 
 CREATE TABLE igra (
-	izvajalec TEXT REFERENCES izvajalec(id),
-	festival TEXT REFERENCES festival(ime, leto, kraj),
+	izvajalec INTEGER REFERENCES izvajalec(id),
+	festival INTEGER REFERENCES festival(id),
 	PRIMARY KEY (izvajalec, festival)
 );
 
 
+CREATE VIEW najboljsi AS 
+SELECT id, povprecna_ocena AS ocena FROM festival
+GROUP BY festival.id, festival.povprecna_ocena
+ORDER BY ocena DESC
