@@ -90,6 +90,6 @@ CREATE TABLE igra (
 
 
 CREATE VIEW najboljsi AS 
-SELECT id, povprecna_ocena AS ocena FROM festival
-GROUP BY festival.id, festival.povprecna_ocena
+SELECT id, ime, povprecna_ocena AS ocena FROM festival
+GROUP BY festival.id, festival.ime, festival.povprecna_ocena
 ORDER BY ocena DESC
