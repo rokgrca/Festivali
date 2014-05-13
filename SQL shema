@@ -3,11 +3,12 @@
 
 
 CREATE TABLE festival (
-	ime TEXT PRIMARY KEY,
-	leto INTEGER PRIMARY KEY,
-	kraj TEXT PRIMARY KEY,
+	ime TEXT NOT NULL,
+	leto INTEGER NOT NULL,
+	kraj TEXT NOT NULL,
 	zacetek DATE NOT NULL,
-	konec DATE NOT NULL
+	konec DATE NOT NULL,
+	PRIMARY KEY (ime, leto, kraj)
 );
 
 CREATE TABLE sponzor (
