@@ -46,28 +46,23 @@ CREATE TABLE zvrst (
 CREATE TABLE sponzorira (
 	id SERIAL PRIMARY KEY,
 	vrednost INTEGER NOT NULL,
-	festival TEXT REFERENCES festival(ime),
-	leto INTEGER REFERENCES festival(leto),
-	kraj TEXT REFERENCES festival(kraj),
+	festival TEXT REFERENCES festival(ime, leto, kraj)
 );
 
 CREATE TABLE prodaja (
 	ime_prodajalec TEXT REFERENCES prodajalec_vstopnic(ime),
-	ime_država TEXT REFERENCES država(ime),
-	ime_festival TEXT REFERENCES festival(ime),
-	kraj_festival TEXT REFERENCES festival(kraj),
-	leto_festival TEXT REFERENCES festival(leto),
+	ime_drzava TEXT REFERENCES država(ime),
+	festival TEXT REFERENCES festival(ime, leto, kraj),
 	cena_vstopnica INTEGER,
 	cena_kamp INTEGER
-
+	PRIMARY KEY (ime_prodajalec, ime_drzava, festival)
 );
 
 CREATE TABLE ocenjuje (
 	ip_uporabnik MACADDR REFERENCES uporabnik(ip)
 	ocena INTEGER NOT NULL
-	ime_festival TEXT REFERENCES festival(ime),
-	kraj_festival TEXT REFERENCES festival(kraj),
-	leto_festival TEXT REFERENCES festival(leto)
+	festival TEXT REFERENCES festival(ime, leto, kraj),
+	PRIMARY KEY (ip_uporabnik, festival)
 );
 
 CREATE TABLE je_v (
