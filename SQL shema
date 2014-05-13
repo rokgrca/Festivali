@@ -46,6 +46,7 @@ CREATE TABLE zvrst (
 
 CREATE TABLE sponzorira (
 	id SERIAL PRIMARY KEY,
+	sponzor TEXT REFERENCES sponzor(ime),
 	vrednost INTEGER NOT NULL,
 	festival TEXT REFERENCES festival(ime, leto, kraj)
 );
@@ -54,7 +55,7 @@ CREATE TABLE prodaja (
 	ime_prodajalec TEXT REFERENCES prodajalec_vstopnic(ime),
 	ime_drzava TEXT REFERENCES država(ime),
 	festival TEXT REFERENCES festival(ime, leto, kraj),
-	cena_vstopnica INTEGER,
+	cena_vstopnica INTEGER NOT NULL,
 	cena_kamp INTEGER
 	PRIMARY KEY (ime_prodajalec, ime_drzava, festival)
 );
