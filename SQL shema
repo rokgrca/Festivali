@@ -95,3 +95,5 @@ ORDER BY ocena DESC
 
 -- VIEW - bandi, drzave, zvrsti
 
+CREATE VIEW 
+
