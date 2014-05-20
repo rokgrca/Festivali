@@ -1,15 +1,16 @@
 
 -- ENTITETE
 
-INSERT INTO festival (id, ime, leto, kraj, zacetek, konec, kamp) VALUES ()
+INSERT INTO festival (id, ime, leto, kraj, zacetek, konec, kamp) VALUES (1,'INmusic',2014,'Zagreb','2014-6-23','2014-6-25','True')
 
-INSERT INTO drzava (ime, kontinent) VALUES ()
+INSERT INTO drzava (ime, kontinent) VALUES ('Hrvaška','Evropa')
 
-INSERT INTO sponzor (ime, drzava) VALUES ()
+INSERT INTO sponzor (ime, drzava) VALUES ('Ožujsko', 'Hrvaška')
 
-INSERT INTO prodajalec_vstopnic (ime, naslov, telefon, homepage) VALUES ()
+INSERT INTO prodajalec_vstopnic (ime, naslov, telefon, homepage) VALUES ('Entrio','Jarun b.b Zagreb',,https://www.entrio.hr/en/event/inmusic-festival-2014-900)
 
 INSERT INTO uporabnik (ip) VALUES ()
+INSERT INTO uporabnik VALUES ()
 
 INSERT INTO izvajalec (id, ime, link) VALUES ()
 
