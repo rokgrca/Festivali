@@ -1,3 +1,6 @@
+
+-- ENTITETE
+
 INSERT INTO festival (id, ime, leto, kraj, zacetek, konec, kamp) VALUES ()
 
 INSERT INTO drzava (ime, kontinent) VALUES ()
@@ -12,3 +15,7 @@ INSERT INTO izvajalec (id, ime, link) VALUES ()
 
 INSERT INTO zvrst (ime) VALUES ()
 
+
+-- RELACIJE ?????
+
+INSERT INTO sponzorira (id, vrednost) VALUES ()
