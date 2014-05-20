@@ -16,6 +16,15 @@ INSERT INTO izvajalec (id, ime, link) VALUES ()
 INSERT INTO zvrst (ime) VALUES ()
 
 
+
+INSERT INTO festival (ime, leto, kraj, zacetek, konec, kamp) VALUES ('INmusic',2014,'Zagreb','2014-6-23','2014-6-25','True');
+INSERT INTO drzava (ime, kontinent) VALUES ('Hrvaška','Evropa');
+INSERT INTO sponzor (ime, drzava) VALUES ('Ožujsko', 'Hrvaška');
+INSERT INTO prodajalec_vstopnic (ime, homepage) VALUES ('Entrio', 'www.entrio.hr/en')
+
+
+
+
 -- RELACIJE ?????
 
 INSERT INTO sponzorira (id, vrednost) VALUES ()
