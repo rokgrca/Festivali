@@ -92,3 +92,6 @@ CREATE VIEW najboljsi AS
 SELECT festival.id, festival.ime, ocenjuje.ocena AS ocena FROM festival, ocenjuje
 GROUP BY festival.id, festival.ime
 ORDER BY ocena DESC
+
+-- VIEW - bandi, drzave, zvrsti
+
