@@ -1,1 +1,14 @@
-INSERT INTO
+INSERT INTO festival (id, ime, leto, kraj, zacetek, konec, kamp) VALUES ()
+
+INSERT INTO drzava (ime, kontinent) VALUES ()
+
+INSERT INTO sponzor (ime, drzava) VALUES ()
+
+INSERT INTO prodajalec_vstopnic (ime, naslov, telefon, homepage) VALUES ()
+
+INSERT INTO uporabnik (ip) VALUES ()
+
+INSERT INTO izvajalec (id, ime, link) VALUES ()
+
+INSERT INTO zvrst (ime) VALUES ()
+
