@@ -1,7 +1,7 @@
 
 -- ENTITETE
 
-INSERT INTO festival (id, ime, leto, kraj, zacetek, konec, kamp) VALUES ()
+INSERT INTO festival (id, ime, leto, kraj, zacetek, konec, kamp, link) VALUES ()
 
 INSERT INTO drzava (ime, kontinent) VALUES ()
 
@@ -17,7 +17,7 @@ INSERT INTO zvrst (ime) VALUES ()
 
 
 
-INSERT INTO festival (ime, leto, kraj, zacetek, konec, kamp) VALUES ('INmusic',2014,'Zagreb','2014-6-23','2014-6-25','True');
+INSERT INTO festival (ime, leto, kraj, zacetek, konec, kamp, link) VALUES ('INmusic',2014,'Zagreb','2014-6-23','2014-6-25','True', 'http://www.inmusicfestival.com/');
 INSERT INTO drzava (ime, kontinent) VALUES ('Hrvaška','Evropa');
 INSERT INTO sponzor (ime, drzava) VALUES ('Ožujsko', 'Hrvaška');
 INSERT INTO prodajalec_vstopnic (ime, homepage) VALUES ('Entrio', 'www.entrio.hr/en')
