@@ -31,3 +31,8 @@ INSERT INTO prodajalec_vstopnic (ime, homepage) VALUES ('Entrio', 'www.entrio.hr
 -- RELACIJE ?????
 
 INSERT INTO sponzorira (sponzor, vrednost, festival) VALUES ('Ožujsko', 10000, 1)
+
+INSERT INTO prodaja (ime_prodajalec, ime_drzava, festival, cena_vstopnica, cena_kamp) 
+VALUES ('Entrio', 'Hrvaška', 1, 349, 150)
+
+INSERT INTO je_v (festival, drzava) VALUES (1, 'Hrvaška')
