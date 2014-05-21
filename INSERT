@@ -25,6 +25,9 @@ INSERT INTO prodajalec_vstopnic (ime, homepage) VALUES ('Entrio', 'www.entrio.hr
 
 
 
+
+
+
 -- RELACIJE ?????
 
-INSERT INTO sponzorira (id, vrednost) VALUES ()
+INSERT INTO sponzorira (sponzor, vrednost, festival) VALUES ('Ožujsko', 10000, 1)
