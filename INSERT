@@ -22,6 +22,8 @@ INSERT INTO drzava (ime, kontinent) VALUES ('Hrvaška','Evropa');
 INSERT INTO sponzor (ime, drzava) VALUES ('Ožujsko', 'Hrvaška');
 INSERT INTO prodajalec_vstopnic (ime, homepage) VALUES ('Entrio', 'www.entrio.hr/en')
 
+INSERT INTO izvajalec(ime) VALUES ('MGMT')
+
 
 
 
