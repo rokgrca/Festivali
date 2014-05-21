@@ -13,14 +13,14 @@ CREATE TABLE festival (
 	link TEXT
 );
 
-CREATE TABLE sponzor (
-	ime TEXT PRIMARY KEY,
-	drzava TEXT REFERENCES drzava(ime)
-);
-
 CREATE TABLE drzava (
 	ime TEXT PRIMARY KEY,
 	kontinent TEXT NOT NULL
+);
+
+CREATE TABLE sponzor (
+	ime TEXT PRIMARY KEY,
+	drzava TEXT REFERENCES drzava(ime)
 );
 
 CREATE TABLE prodajalec_vstopnic (
