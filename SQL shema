@@ -96,5 +96,7 @@ ORDER BY ocena DESC
 
 -- VIEW - bandi, drzave, zvrsti
 
-CREATE VIEW 
+CREATE VIEW bandi AS
+SELECT festival.id, festival.ime, festival.leto AS fest FROM festival
+GROUP BY 
 
