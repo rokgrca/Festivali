@@ -26,7 +26,7 @@ CREATE TABLE sponzor (
 CREATE TABLE prodajalec_vstopnic (
 	ime TEXT PRIMARY KEY,
 	naslov TEXT,
-	telefon INTEGER,
+	telefon TEXT,
 	homepage TEXT
 );
 
