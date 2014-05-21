@@ -9,7 +9,8 @@ CREATE TABLE festival (
 	kraj TEXT NOT NULL,
 	zacetek DATE,
 	konec DATE,
-	kamp BOOLEAN
+	kamp BOOLEAN,
+	link TEXT
 );
 
 CREATE TABLE sponzor (
