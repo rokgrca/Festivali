@@ -10,7 +10,7 @@ CREATE TABLE festival (
 	zacetek DATE NOT NULL,
 	konec DATE NOT NULL,
 	kamp BOOLEAN NOT NULL,
-	link TEXT NOT NULL
+	link TEXT
 );
 
 CREATE TABLE drzava (
@@ -37,7 +37,7 @@ CREATE TABLE uporabnik (
 CREATE TABLE izvajalec (
 	id SERIAL PRIMARY KEY,
 	ime TEXT NOT NULL,
-	link TEXT NOT NULL
+	link TEXT
 );
 
 CREATE TABLE zvrst (
