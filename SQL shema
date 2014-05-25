@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS festival (
 	kraj TEXT NOT NULL,
 	zacetek DATE NOT NULL,
 	konec DATE NOT NULL,
-	kamp BOOLEAN,
+	kamp BOOLEAN NOT NULL,
 	link TEXT
 );
 
