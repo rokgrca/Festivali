@@ -2,7 +2,7 @@
 -- OPB - projekt SQL shema
 
 
-CREATE TABLE IF NOT EXISTS festival (
+CREATE TABLE festival (
 	id SERIAL PRIMARY KEY,
 	ime TEXT NOT NULL,
 	leto INTEGER NOT NULL,
@@ -13,47 +13,47 @@ CREATE TABLE IF NOT EXISTS festival (
 	link TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS drzava (
+CREATE TABLE drzava (
 	ime TEXT PRIMARY KEY,
 	kontinent TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS sponzor (
+CREATE TABLE sponzor (
 	ime TEXT PRIMARY KEY,
 	drzava TEXT NOT NULL REFERENCES drzava(ime)
 );
 
-CREATE TABLE IF NOT EXISTS prodajalec_vstopnic (
+CREATE TABLE prodajalec_vstopnic (
 	ime TEXT PRIMARY KEY,
 	naslov TEXT,
 	telefon TEXT,
 	homepage TEXT
 );
 
-CREATE TABLE IF NOT EXISTS uporabnik (
+CREATE TABLE uporabnik (
 	ip CIDR PRIMARY KEY
 );
 
-CREATE TABLE IF NOT EXISTS izvajalec (
+CREATE TABLE izvajalec (
 	id SERIAL PRIMARY KEY,
 	ime TEXT NOT NULL,
 	link TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS zvrst (
+CREATE TABLE zvrst (
 	ime TEXT PRIMARY KEY
 );
 
 
 
-CREATE TABLE IF NOT EXISTS sponzorira (
+CREATE TABLE sponzorira (
 	id SERIAL PRIMARY KEY,
 	sponzor TEXT NOT NULL REFERENCES sponzor(ime),
 	vrednost INTEGER NOT NULL,
 	festival INTEGER NOT NULL REFERENCES festival(id)
 );
 
-CREATE TABLE IF NOT EXISTS prodaja (
+CREATE TABLE prodaja (
 	ime_prodajalec TEXT REFERENCES prodajalec_vstopnic(ime),
 	ime_drzava TEXT REFERENCES drzava(ime),
 	festival INTEGER REFERENCES festival(id),
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS prodaja (
 	PRIMARY KEY (ime_prodajalec, ime_drzava, festival)
 );
 
-CREATE TABLE IF NOT EXISTS ocenjuje (
+CREATE TABLE ocenjuje (
 	ip_uporabnik CIDR REFERENCES uporabnik(ip),
 	ocena INTEGER NOT NULL,
 	CHECK (1 <= ocena AND ocena <= 10),
@@ -70,19 +70,19 @@ CREATE TABLE IF NOT EXISTS ocenjuje (
 	PRIMARY KEY (ip_uporabnik, festival)
 );
 
-CREATE TABLE IF NOT EXISTS je_v (
+CREATE TABLE je_v (
 	festival INTEGER REFERENCES festival(id),
 	drzava TEXT REFERENCES drzava(ime),
 	PRIMARY KEY (festival, drzava)
 );
 
-CREATE TABLE IF NOT EXISTS je (
+CREATE TABLE je (
 	izvajalec INTEGER REFERENCES izvajalec(id),
 	zvrst TEXT REFERENCES zvrst(ime),
 	PRIMARY KEY (izvajalec, zvrst)
 );
 
-CREATE TABLE IF NOT EXISTS igra (
+CREATE TABLE igra (
 	izvajalec INTEGER REFERENCES izvajalec(id),
 	festival INTEGER REFERENCES festival(id),
 	PRIMARY KEY (izvajalec, festival)
