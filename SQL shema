@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS festival (
 	zacetek DATE NOT NULL,
 	konec DATE NOT NULL,
 	kamp BOOLEAN NOT NULL,
-	link TEXT
+	link TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS drzava (
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS drzava (
 
 CREATE TABLE IF NOT EXISTS sponzor (
 	ime TEXT PRIMARY KEY,
-	drzava TEXT REFERENCES drzava(ime)
+	drzava TEXT NOT NULL REFERENCES drzava(ime)
 );
 
 CREATE TABLE IF NOT EXISTS prodajalec_vstopnic (
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS uporabnik (
 CREATE TABLE IF NOT EXISTS izvajalec (
 	id SERIAL PRIMARY KEY,
 	ime TEXT NOT NULL,
-	link TEXT
+	link TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS zvrst (
@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS zvrst (
 
 CREATE TABLE IF NOT EXISTS sponzorira (
 	id SERIAL PRIMARY KEY,
-	sponzor TEXT REFERENCES sponzor(ime),
+	sponzor TEXT NOT NULL REFERENCES sponzor(ime),
 	vrednost INTEGER NOT NULL,
-	festival INTEGER REFERENCES festival(id)
+	festival INTEGER NOT NULL REFERENCES festival(id)
 );
 
 CREATE TABLE IF NOT EXISTS prodaja (
