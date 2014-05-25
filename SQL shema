@@ -89,6 +89,7 @@ CREATE TABLE igra (
 );
 
 
+-- BREZVEZE--
 CREATE VIEW najboljsi AS 
 SELECT festival.id, festival.ime, ocenjuje.ocena AS ocena FROM festival, ocenjuje
 GROUP BY festival.id, festival.ime
@@ -99,3 +100,6 @@ ORDER BY ocena DESC
 SELECT * FROM festival
 GROUP BY 
 
+CREATE VIEW bandi AS 
+SELECT festival.id, festival.ime, izvajalec.id, izvajalec.ime AS band FROM festival, izvajalec
+GROUP BY festival.id, festival.ime
